@@ -29,6 +29,10 @@ module.exports = function (grunt) {
   grunt.initConfig({
     yeoman: yeomanConfig,
     watch: {
+      recess: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+        tasks: ['recess:dist']
+      },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['copy:styles', 'autoprefixer']
@@ -170,6 +174,20 @@ module.exports = function (grunt) {
         }]
       }
     },
+    recess: {
+      options: {
+        compile: true
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/styles',
+          src: '{,*/}*.less',
+          dest: '.tmp/styles/',
+          ext: '.css'
+        }]
+      }
+    },
     cssmin: {
       // By default, your `index.html` <!-- Usemin Block --> will take care of
       // minification. This option is pre-configured if you do not wish to use
@@ -237,6 +255,7 @@ module.exports = function (grunt) {
     },
     concurrent: {
       server: [
+        'recess',
         'copy:styles'
       ],
       test: [
@@ -244,6 +263,7 @@ module.exports = function (grunt) {
       ],
       dist: [
         'copy:styles',
+        'recess',
         'imagemin',
         'svgmin',
         'htmlmin'
@@ -314,6 +334,7 @@ module.exports = function (grunt) {
     'cdnify',
     'ngmin',
     'cssmin',
+    'recess',
     'uglify',
     'rev',
     'usemin'
