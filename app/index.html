@@ -1,5 +1,5 @@
 <!doctype html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
@@ -8,26 +8,28 @@
 
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css">
     <!-- endbuild -->
 
 </head>
-  <body ng-app="navigatorApp">
+<body ng-app="navigatorApp">
 
-    <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+<!-- Add your site or application content here -->
+<div class="container" ng-view=""></div>
 
-    <script src="bower_components/jquery/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
 
-        <!-- build:js scripts/modules.js -->
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <!-- endbuild -->
+<!-- build:js scripts/modules.js -->
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-leaflet-directive/src/angular-leaflet-directive.js"></script>
+<!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <!-- endbuild -->
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<!-- endbuild -->
 </body>
 </html>

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('navigatorApp', [])
+angular.module('navigatorApp', ['leaflet-directive'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
